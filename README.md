@@ -25,3 +25,28 @@ ReCAST 致力於結合孫子兵法的戰略哲學、太極拳的具身實踐，�
 1. 下載或 Clone 本專案
    ```bash
    git clone https://github.com/rockylinisu/ReCAST.git
+   ```
+2. 打開 `index.html` 即可在瀏覽器預覽  
+3. 若要公開發布，可上傳至：
+   - [GitHub Pages](https://pages.github.com/)
+   - [Netlify Drop](https://app.netlify.com/drop)
+
+---
+
+## 📂 Project Structure
+```
+.
+├── index.html        # 主頁
+├── assets/           # 圖片 (logo, banner, founder photos)
+├── LICENSE           # MIT License (for code)
+├── NOTICE.md         # Content License (for text & images)
+└── README.md         # 專案說明
+```
+
+---
+
+## 📖 License
+- **Code** → 發佈於 [MIT License](LICENSE)  
+- **Content (文字、圖片、研究說明)** → 依據 [NOTICE.md](NOTICE.md) 規範（僅限學術與非商業使用）  
+
+---
