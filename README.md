@@ -5,7 +5,7 @@ ReCAST 致力於結合孫子兵法的戰略哲學、太極拳的具身實踐，�
 ---
 
 ## 🌐 Demo Website
-[https://rockylinisu.github.io/recast](https://rockylinisu.github.io/recast)
+[https://rockylinisu.github.io/ReCAST](https://rockylinisu.github.io/ReCAST)
 
 > ⚡ 點擊上方連結即可瀏覽 ReCAST 的一頁式網站。
 
