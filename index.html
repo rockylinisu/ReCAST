@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ReCAST – Research Center for Applied Sun Tzu Bin Fa and Taijiquan</title>
+  <meta name="description" content="ReCAST：東方戰略 × 太極拳 × 管理實踐的跨域研究與推廣。Bilingual one-page site with language toggle." />
+  <style>
+    :root{
+      --ink:#0f172a; --muted:#55607a; --brand:#0b3a6f;
+      --bgA:#eef2ff; --bgB:#f8fafc; --line:#e2e8f0; --link:#0ea5e9;
+      --card:#ffffff;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:var(--ink);line-height:1.7;background:linear-gradient(135deg,var(--bgB),var(--bgA))}
+    a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
+    /* Header */
+    header{
+      color:#fff;
+      background: radial-gradient(1200px 500px at 10% 0%, #1e3a8a 0%, #0b3a6f 60%, #0a2540 100%);
+      padding:18px 16px 10px;
+    }
+    .container{max-width:1120px;margin:auto}
+    .header-row{display:flex;gap:16px;align-items:center}
+    .logo{width:68px;height:68px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.65);box-shadow:0 6px 18px rgba(0,0,0,.25)}
+    .titles{flex:1;text-align:left}
+    .titles h1{margin:0 0 4px;font-size:28px;letter-spacing:.4px}
+    .titles p{margin:2px 0 0;font-size:15px;opacity:.92}
+    .lang-switch{display:flex;gap:8px}
+    .btn{background:#ffffff;border:1px solid #c7d2fe;color:#1e3a8a;border-radius:10px;padding:6px 12px;font-size:13px;cursor:pointer}
+    .btn.active{background:#1e3a8a;color:#fff;border-color:#1e3a8a}
+    .banner{margin:12px 0 0;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.25);box-shadow:0 8px 20px rgba(0,0,0,.2)}
+    .banner img{width:100%;display:block}
+
+    main{padding:0 16px 70px}
+    section{border-radius:20px;padding:26px;margin:22px auto;overflow:hidden;border:1px solid var(--line)}
+    .section-title{margin:0 0 14px;font-size:22px;color:#fff;letter-spacing:.3px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin:auto;max-width:900px}
+    .muted{color:var(--muted)}
+    ul{margin:8px 0 0;padding-left:20px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .chip{background:#eef2ff;border:1px solid #c7d2fe;color:#3730a3;border-radius:999px;padding:4px 10px;font-size:12px}
+    footer{text-align:center;color:#fff;padding:18px 12px;font-size:14px;background:linear-gradient(90deg,#0b3a6f,#0e7490)}
+
+    /* Scrollbox for publications */
+    .scrollbox{max-height:280px; overflow:auto; padding-right:10px; background:#fcfdff; border:1px solid #e5e7eb; border-radius:12px;}
+    .scrollbox::-webkit-scrollbar{width:10px}
+    .scrollbox::-webkit-scrollbar-track{background:#f1f5f9;border-radius:10px}
+    .scrollbox::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:10px}
+    .scrollbox::-webkit-scrollbar-thumb:hover{background:#94a3b8}
+
+    /* Section color backgrounds */
+    #about{background:linear-gradient(135deg,#0ea5e9,#2563eb)}
+    #areas{background:linear-gradient(135deg,#10b981,#065f46)}
+    #publications{background:linear-gradient(135deg,#7c3aed,#4c1d95)}
+    #gallery{background:linear-gradient(135deg,#06b6d4,#0ea5e9)}
+    #funders{background:linear-gradient(135deg,#f59e0b,#c2410c)}
+    #founder{background:linear-gradient(135deg,#ec4899,#be185d)}
+    #contact{background:linear-gradient(135deg,#64748b,#334155)}
+
+    /* Founder layout */
+    .founder-wrap{display:grid;gap:22px;grid-template-columns:1fr}
+    @media(min-width:980px){.founder-wrap{grid-template-columns:1fr 1.2fr}}
+    .founder-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .photo-frame{position:relative;width:100%;height:280px;border-radius:14px;overflow:hidden;border:1px solid #e5e7eb;background:#fff;box-shadow:0 6px 14px rgba(0,0,0,.06)}
+    .photo-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .badge{display:inline-block;background:#fff;color:#be185d;border:1px solid rgba(0,0,0,.06);padding:4px 12px;border-radius:999px;font-size:12px;margin:4px 6px 0 0}
+
+    /* Language visibility */
+    [data-lang]{display:none}
+    body.lang-zh [data-lang="zh"]{display:block}
+    body.lang-en [data-lang="en"]{display:block}
+  </style>
+</head>
+<body class="lang-zh">
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <img class="logo" src="./assets/recast_logo.png" alt="ReCAST Logo" />
+        <div class="titles">
+          <h1>ReCAST</h1>
+          <p>Research Center for Applied Sun Tzu Bin Fa and Taijiquan · 東方戰略 × 太極拳 × 管理實踐（Bilingual ZH/EN）</p>
+        </div>
+        <div class="lang-switch" aria-label="language switch">
+          <button class="btn active" id="btnZH">中文</button>
+          <button class="btn" id="btnEN">EN</button>
+        </div>
+      </div>
+      <div class="banner">
+        <img src="./assets/banner.jpg" alt="ReCAST banner" />
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-title">關於 ReCAST · About ReCAST</h2>
+      <div class="card" data-lang="zh">
+        <p>ReCAST 致力於結合孫子兵法的戰略哲學、太極拳的具身實踐，以及當代管理與教育的應用，推動東方智慧的現代化詮釋與跨域落地。我們的使命是將「戰略思維」轉化為「身體可感的實踐力」，並透過研究、教學與社會參與創造長期價值。</p>
+        <div class="chips">
+          <span class="chip">孫子兵法語義重構</span>
+          <span class="chip">具身化策略素養</span>
+          <span class="chip">DSTM / DDCSM</span>
+          <span class="chip">ESG × 教育 × 管理</span>
+          <span class="chip">AI / AR / VR 應用</span>
+        </div>
+      </div>
+      <div class="card" data-lang="en">
+        <p>ReCAST integrates the strategic philosophy of <em>Sun Tzu’s Art of War</em>, the embodied practice of Taijiquan, and modern applications in management and education. Our mission is to translate <strong>strategic thinking</strong> into <strong>embodied, actionable capabilities</strong> that create long-term value through research, teaching, and social engagement.</p>
+        <div class="chips">
+          <span class="chip">Semantic reframing of Sun Tzu</span>
+          <span class="chip">Embodied strategic literacy</span>
+          <span class="chip">DSTM / DDCSM</span>
+          <span class="chip">ESG × Education × Management</span>
+          <span class="chip">AI / AR / VR for learning</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Areas -->
+    <section id="areas">
+      <h2 class="section-title">核心領域 · Core Areas</h2>
+      <div class="card" data-lang="zh">
+        <ul>
+          <li>孫子兵法語義重構（如：詭／詐、急於丘役）與戰略模型建構</li>
+          <li>太極拳的具身認知與策略素養訓練（推手、鬆與中定）</li>
+          <li>大禹式動態競爭策略模型（DSTM / DDCSM）之理論與實作</li>
+          <li>ESG 與管理教育 / 組織變革的整合應用</li>
+          <li>AI / AR / VR 支援的戰略與太極拳學習設計</li>
+        </ul>
+      </div>
+      <div class="card" data-lang="en">
+        <ul>
+          <li>Semantic reframing of Sun Tzu (e.g., <em>Gui/Zha</em>, <em>Ji Yu Qiu Yi</em>) and strategic modeling</li>
+          <li>Embodied cognition in Taijiquan and strategic literacy training (tui shou, <em>song</em>, <em>zhong ding</em>)</li>
+          <li>The Dayu-Style Dynamic Strategy Model (DSTM / DDCSM): theory and practice</li>
+          <li>Integrated applications to ESG, management education, and organizational change</li>
+          <li>AI / AR / VR-assisted learning design for strategy and Taijiquan</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2 class="section-title">成果與出版（擇要）· Selected Publications</h2>
+      <div class="card" data-lang="zh">
+        <div class="scrollbox">
+          <ul>
+            <li><a href="https://doi.org/10.31235/osf.io/um8xy_v3" target="_blank" rel="noopener">〈急於丘役〉的戰略語義新詮（SocArXiv, 2025）</a></li>
+            <li><a href="https://doi.org/10.31235/osf.io/r5uv2_v1" target="_blank" rel="noopener">大禹式動態競爭策略模型（DSTM）（SocArXiv, 2025）</a></li>
+            <li><a href="http://dx.doi.org/10.13140/RG.2.2.20372.62086" target="_blank" rel="noopener">具身策略：推手的價值（ResearchGate, 2025）</a></li>
+            <li><a href="http://dx.doi.org/10.13140/RG.2.2.11838.19528" target="_blank" rel="noopener">詭／詐之管理詮釋與時機（ResearchGate, 2025）</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" data-lang="en">
+        <div class="scrollbox">
+          <ul>
+            <li><a href="https://doi.org/10.31235/osf.io/um8xy_v3" target="_blank" rel="noopener">Reinterpreting “Ji Yu Qiu Yi”: A Strategic Semantic Reconstruction (SocArXiv, 2025)</a></li>
+            <li><a href="https://doi.org/10.31235/osf.io/r5uv2_v1" target="_blank" rel="noopener">The Dayu-Style Strategic Thinking Model (DSTM) (SocArXiv, 2025)</a></li>
+            <li><a href="http://dx.doi.org/10.13140/RG.2.2.20372.62086" target="_blank" rel="noopener">Embodied Strategy: The Value of Push-hands in Life (ResearchGate, 2025)</a></li>
+            <li><a href="http://dx.doi.org/10.13140/RG.2.2.11838.19528" target="_blank" rel="noopener">Reframing “Gui/Zha” for Strategic Adaptability and Timing (ResearchGate, 2025)</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+      <h2 class="section-title">活動剪影 · Gallery</h2>
+      <div class="card">
+        <div>
+          <iframe src="https://drive.google.com/embeddedfolderview?id=1mIH6xpIaB6CCDMsJ446wnwb098b_nHWG#grid" style="width:100%; height:600px; border:0;"></iframe>
+        </div>
+        <p class="small"><span data-lang="zh">若無法載入，請點：</span><span data-lang="en">If the embed doesn't load, open:</span> <a href="https://drive.google.com/drive/folders/1mIH6xpIaB6CCDMsJ446wnwb098b_nHWG?usp=sharing" target="_blank" rel="noopener">Google Drive</a></p>
+      </div>
+    </section>
+
+    <!-- Funders -->
+    <section id="funders">
+      <h2 class="section-title">贊助與合作 · Funders & Partners</h2>
+      <div class="card" data-lang="zh">
+        <ul>
+          <li><strong>主要贊助：</strong>（單位名稱 / 計畫名稱 / 年度 / 金額或類別）</li>
+          <li><strong>共同合作：</strong>（學術單位或協會名稱 / 合作內容）</li>
+          <li><strong>計畫編號：</strong>（如有政府或校內計畫編號，請填寫）</li>
+          <li><strong>致謝聲明：</strong>感謝（贊助方）對 ReCAST 的支持；本文觀點不代表贊助方立場。</li>
+        </ul>
+      </div>
+      <div class="card" data-lang="en">
+        <ul>
+          <li><strong>Primary Funder:</strong> (Organization / Project name / Year / Amount or type)</li>
+          <li><strong>Collaborating Partners:</strong> (Institutions / Associations & scope of collaboration)</li>
+          <li><strong>Grant / Project ID:</strong> (Government or university project code, if applicable)</li>
+          <li><strong>Acknowledgment:</strong> We acknowledge the support from (Funder). Views are the authors’ own.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Founder -->
+    <section id="founder">
+      <h2 class="section-title">創辦人 · Founder</h2>
+      <div class="card">
+        <div class="founder-wrap">
+          <div class="founder-photos">
+            <div class="photo-frame"><img src="./assets/founder_talk.jpg" alt="Founder speaking / 解說" /></div>
+            <div class="photo-frame"><img src="./assets/founder_sword.jpg" alt="Founder with Taiji sword / 太極劍" /></div>
+          </div>
+          <div>
+            <div class="badge">Ph.D., National Cheng Kung University</div>
+            <div class="badge">Associate Professor, I‑Shou University</div>
+            <div class="badge">International Taijiquan Coach & Referee</div>
+            <div class="badge">Sun Tzu × DSTM/DDCSM</div>
+
+            <div data-lang="zh">
+              <h3>中文</h3>
+              <ul>
+                <li><strong>學歷：</strong>國立成功大學機械工程博士</li>
+                <li><strong>現職：</strong>義守大學工業管理學系副教授（曾任系主任）</li>
+                <li><strong>專長：</strong>孫子兵法語義重構與管理應用、太極拳具身認知、動態競爭策略模型（DSTM/DDCSM）</li>
+                <li><strong>資格：</strong>太極拳國際級教練、國家級教練、裁判</li>
+                <li><strong>教學與推廣：</strong>孫子兵法與管理特論、當代太極拳思想與實踐、USR 樂齡健康計畫</li>
+                <li><strong>研究與出版：</strong>國際研討會與期刊發表，並於 SocArXiv / ResearchGate 發表多篇 preprint</li>
+              </ul>
+            </div>
+            <div data-lang="en">
+              <h3>English</h3>
+              <ul>
+                <li><strong>Education:</strong> Ph.D. in Mechanical Engineering, National Cheng Kung University</li>
+                <li><strong>Position:</strong> Associate Professor (former Chair), Dept. of Industrial Management, I‑Shou University</li>
+                <li><strong>Expertise:</strong> Strategic semantics of Sun Tzu, embodied cognition via Taijiquan, Dynamic Strategy Models (DSTM/DDCSM)</li>
+                <li><strong>Credentials:</strong> International/National Taijiquan coach & certified referee</li>
+                <li><strong>Teaching & Outreach:</strong> Sun Tzu & Management, Contemporary Taijiquan—Thought & Practice, USR projects on active aging</li>
+                <li><strong>Publications:</strong> Conference papers and preprints on SocArXiv/ResearchGate</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact (English-only) -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="card">
+        <p>Email: <a href="mailto:rocky@isu.edu.tw">rocky@isu.edu.tw</a> (Academic) / <a href="mailto:findrocky@gmail.com">findrocky@gmail.com</a> (Personal)</p>
+        <p>YouTube: <a href="https://www.youtube.com/@isuimrocky1877" target="_blank" rel="noopener">@isuimrocky1877</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Profile (replace)</a></p>
+        <p>ResearchGate: <a href="https://www.researchgate.net/" target="_blank" rel="noopener">Profile (replace)</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ReCAST. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Language toggle
+    const btnZH = document.getElementById('btnZH');
+    const btnEN = document.getElementById('btnEN');
+    function activate(lang){
+      document.body.classList.toggle('lang-zh', lang==='zh');
+      document.body.classList.toggle('lang-en', lang==='en');
+      btnZH.classList.toggle('active', lang==='zh');
+      btnEN.classList.toggle('active', lang==='en');
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en');
+    }
+    btnZH.addEventListener('click', ()=>activate('zh'));
+    btnEN.addEventListener('click', ()=>activate('en'));
+  </script>
+</body>
+</html>
