@@ -12,11 +12,11 @@ ReCAST 致力於結合孫子兵法的戰略哲學、太極拳的具身實踐，�
 ---
 
 ## ✨ Features
-- 🌏 **Bilingual UI** – 中文 / English 切換
-- 🖼️ **Gallery** – 內嵌 Google Drive 活動剪影
-- 📚 **Publications** – 成果與出版，滾動式清單
-- 👤 **Founder Section** – 創辦人介紹與圖片
-- 📬 **Contact** – 聯絡方式（Email, YouTube, LinkedIn, ResearchGate）
+- 🌏 **Bilingual UI** – 中文 / English 切換  
+- 🖼️ **Gallery** – 內嵌 Google Drive 活動剪影  
+- 📚 **Publications** – 成果與出版，滾動式清單  
+- 👤 **Founder Section** – 創辦人介紹與圖片  
+- 📬 **Contact** – 聯絡方式（Email, YouTube, LinkedIn, ResearchGate）  
 
 ---
 
@@ -24,4 +24,4 @@ ReCAST 致力於結合孫子兵法的戰略哲學、太極拳的具身實踐，�
 
 1. 下載或 Clone 本專案
    ```bash
-   git clone https://github.com/yourname/recast.git
+   git clone https://github.com/rockylinisu/ReCAST.git
